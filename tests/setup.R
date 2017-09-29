@@ -9,7 +9,7 @@ nhanes_cat <-
 # sample 25% of the records
 which_records <- sample( seq( nrow( nhanes_cat ) ) , round( nrow( nhanes_cat ) * 0.25 ) )
 
-# always sample years == "2013-2014"
-nhanes_cat <- unique( rbind( nhanes_cat[ which_records , ] , subset( nhanes_cat , years == "2013-2014" ) ) )
+# always sample years == "2015-2016"
+nhanes_cat <- unique( rbind( nhanes_cat[ which_records , ] , subset( nhanes_cat , years == "2015-2016" ) ) )
 
 lodown( "nhanes" , nhanes_cat )

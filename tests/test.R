@@ -6,8 +6,8 @@ nhanes_cat <-
 	get_catalog( "nhanes" ,
 		output_dir = file.path( getwd() ) )
 
-# 2013-2014 only
-nhanes_cat <- subset( nhanes_cat , years == "2013-2014" )
+# 2015-2016 only
+nhanes_cat <- subset( nhanes_cat , years == "2015-2016" )
 # download the microdata to your local computer
 stopifnot( nrow( nhanes_cat ) > 0 )
 
@@ -16,10 +16,10 @@ options( survey.lonely.psu = "adjust" )
 library(survey)
 
 nhanes_demo_df <- 
-	readRDS( file.path( getwd() , "2013-2014/demo_h.rds" ) )
+	readRDS( file.path( getwd() , "2015-2016/demo_h.rds" ) )
 
 nhanes_tchol_df <- 
-	readRDS( file.path( getwd() , "2013-2014/tchol_h.rds" ) )
+	readRDS( file.path( getwd() , "2015-2016/tchol_h.rds" ) )
 
 nhanes_df <- merge( nhanes_demo_df , nhanes_tchol_df , all = TRUE )
 
