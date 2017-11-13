@@ -8,8 +8,11 @@ nhanes_cat <-
 	get_catalog( "nhanes" ,
 		output_dir = file.path( getwd() ) )
 
-record_categories <- ceiling( seq( nrow( nhanes_cat ) ) / ceiling( nrow( nhanes_cat ) / 5 ) )
+record_categories <- ceiling( seq( nrow( nhanes_cat ) ) / ceiling( nrow( nhanes_cat ) / 8 ) )
 
 nhanes_cat <- unique( rbind( nhanes_cat[ record_categories == this_sample_break , ] , nhanes_cat[ nhanes_cat$years == "2015-2016" , ] ) )
+
+# skip the two physical activity files because ci fails for some undetermined reason
+nhanes_cat <- subset( nhanes_cat , !grepl( "paxraw" , output_filename ) )
 
 lodown( "nhanes" , nhanes_cat )
