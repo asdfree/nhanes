@@ -26,7 +26,7 @@ nhanes_cat <-
 # 2015-2016 only
 nhanes_cat <- subset( nhanes_cat , years == "2015-2016" )
 # download the microdata to your local computer
-lodown( "nhanes" , nhanes_cat )
+
 
 options( survey.lonely.psu = "adjust" )
 
