@@ -13,7 +13,7 @@ nhanes_cat <-
 # skip the two physical activity files because ci fails for some undetermined reason
 nhanes_cat <- subset( nhanes_cat , !grepl( "paxraw" , output_filename ) )
 
-nhanes_cat <- nhanes_cat[ split( seq( nrow( nhanes_cat ) ) , sort( seq( nrow( nhanes_cat ) ) %% 10 ) )[[ this_sample_break ]] , ]
+nhanes_cat <- nhanes_cat[ split( seq( nrow( nhanes_cat ) ) , 1 + sort( seq( nrow( nhanes_cat ) ) %% 10 ) )[[ this_sample_break ]] , ]
 
 lodown( "nhanes" , nhanes_cat )
 if( any( nhanes_cat$years == "2015-2016" ) ){
