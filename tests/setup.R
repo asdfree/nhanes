@@ -15,17 +15,17 @@ nhanes_cat <- subset( nhanes_cat , !grepl( "paxraw" , output_filename ) )
 
 nhanes_cat <- nhanes_cat[ split( seq( nrow( nhanes_cat ) ) , 1 + sort( seq( nrow( nhanes_cat ) ) %% 10 ) )[[ this_sample_break ]] , ]
 
-lodown( "nhanes" , nhanes_cat )
+nhanes_cat <- lodown( "nhanes" , nhanes_cat )
 if( any( nhanes_cat$years == "2015-2016" ) ){
-library(lodown)
-# examine all available NHANES microdata files
-nhanes_cat <-
-	get_catalog( "nhanes" ,
-		output_dir = file.path( getwd() ) )
 
-# 2015-2016 only
-nhanes_cat <- subset( nhanes_cat , years == "2015-2016" )
-# download the microdata to your local computer
+
+
+
+
+
+
+
+
 
 
 options( survey.lonely.psu = "adjust" )
