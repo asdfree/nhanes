@@ -49,7 +49,10 @@ demo_vars <-
 		"RIDAGEYR" ,
 		
 		# gender
-		"RIAGENDR"
+		"RIAGENDR" ,
+		
+		# pregnant at interview
+		"RIDEXPRG"
 	)
 
 nhanes_2015_2018_demo_df <-
@@ -131,7 +134,10 @@ nhanes_design <-
 				c( 4 , 4 , 1 , 2 , NA , 3 , 5 )[ ridreth3 ] ,
 				levels = 1:5 ,
 				labels = c( 'nh white' , 'nh black' , 'nh asian' , 'hispanic' , 'other' )
-			)
+			) ,
+			
+		pregnant_at_interview = 
+			ifelse( ridexprg %in% 1:2 , as.numeric( ridexprg == 1 ) , NA )
 	)
 sum( weights( nhanes_design , "sampling" ) != 0 )
 
