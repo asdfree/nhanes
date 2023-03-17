@@ -216,14 +216,6 @@ glm_result <-
 	)
 
 summary( glm_result )
-library(srvyr)
-nhanes_srvyr_design <- as_survey( nhanes_design )
-nhanes_srvyr_design %>%
-	summarize( mean = survey_mean( lbxtc , na.rm = TRUE ) )
-
-nhanes_srvyr_design %>%
-	group_by( race_ethnicity ) %>%
-	summarize( mean = survey_mean( lbxtc , na.rm = TRUE ) )
 crude_overall <-
 	svymean( ~ hi_tchol , subset( nhanes_design , ridageyr >= 20 ) , na.rm = TRUE )
 
@@ -324,3 +316,11 @@ stopifnot( round( SE( results_by_race_ethnicity )[ 1 ] , 3 ) == 0.007 )
 stopifnot( round( SE( results_by_race_ethnicity )[ 2 ] , 3 ) == 0.009 )
 stopifnot( round( SE( results_by_race_ethnicity )[ 3 ] , 3 ) == 0.011 )	
 stopifnot( round( SE( results_by_race_ethnicity )[ 4 ] , 3 ) == 0.009 )	
+library(srvyr)
+nhanes_srvyr_design <- as_survey( nhanes_design )
+nhanes_srvyr_design %>%
+	summarize( mean = survey_mean( lbxtc , na.rm = TRUE ) )
+
+nhanes_srvyr_design %>%
+	group_by( race_ethnicity ) %>%
+	summarize( mean = survey_mean( lbxtc , na.rm = TRUE ) )
