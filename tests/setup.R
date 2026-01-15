@@ -3,13 +3,13 @@
 #vanlife interviews
 library(haven)
 
-nhanes_2015_2016_demo_url <- "https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/DEMO_I.XPT"
+nhanes_2015_2016_demo_url <- "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/DEMO_I.xpt"
 
-nhanes_2017_2018_demo_url <- "https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/DEMO_J.XPT"
+nhanes_2017_2018_demo_url <- "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DEMO_J.xpt"
 
-nhanes_2015_2016_tchol_url <- "https://wwwn.cdc.gov/Nchs/Nhanes/2015-2016/TCHOL_I.XPT"
+nhanes_2015_2016_tchol_url <- "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2015/DataFiles/TCHOL_I.xpt"
 	
-nhanes_2017_2018_tchol_url <- "https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/TCHOL_J.XPT"
+nhanes_2017_2018_tchol_url <- "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/TCHOL_J.xpt"
 	
 
 nhanes_2015_2016_demo_tbl <- read_xpt( nhanes_2015_2016_demo_url )
